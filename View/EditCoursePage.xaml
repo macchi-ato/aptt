@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="mobile_app.View.EditCoursePage"
+             Title="EditCoursePage">
+
+    <ScrollView>
+    <VerticalStackLayout Padding="20" Margin="0,50,0,0">
+
+        <Entry x:Name="CourseName"
+               Text="{Binding Name}"
+               Margin="0,0,0,20"/>
+
+        <Label Text="Insctructor Name:"/>
+        <Entry x:Name="CourseInstructorName"
+               Text="{Binding InstructorName}"
+               Margin="0,0,0,20"/>
+
+        <Label Text="Instrcutor Phone:"/>
+        <Entry x:Name="CourseInstructorPhone"
+               Text="{Binding InstructorPhone}"
+               Margin="0,0,0,20"/>
+
+        <Label Text="Instructor Email:"/>
+        <Entry x:Name="CourseInstructorEmail"
+               Text="{Binding InstructorEmail}"
+               Margin="0,0,0,20"/>
+
+        <Label Text="Notes:"/>
+        <Entry x:Name="CourseNotes"
+               Text="{Binding Notes}"
+               Placeholder="Add notes..."
+               Margin="0,0,0,20"/>
+
+        <Label Text="Course Status:"/>
+        <Picker x:Name="StatusPicker"
+                Title="{Binding Status}"
+                SelectedItem="{Binding Status}"
+                Margin="0,0,0,20">
+            <Picker.Items>
+                <x:String>In Progress</x:String>
+                <x:String>Completed</x:String>
+                <x:String>Dropped</x:String>
+                <x:String>Plan to Take</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Start date:"/>
+        <DatePicker x:Name="CourseStartDate"
+                Format="MM/dd/yyyy"
+                Date="{Binding StartDate}"
+                Margin="0,0,0,20"/>
+
+        <Label Text="End date:"/>
+        <DatePicker x:Name="CourseEndDate"
+            Format="MM/dd/yyyy"
+            Date="{Binding EndDate}"
+            Margin="0,0,0,20"/>
+
+        <HorizontalStackLayout>
+            <CheckBox x:Name="StartNotificationCheckbox" CheckedChanged="OnCheckedStartNotification"/>
+            <Label Text="Notify me on start date" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <CheckBox x:Name="EndNotificationCheckbox" CheckedChanged="OnCheckedEndNotification"/>
+            <Label Text="Notify me on end date" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <Grid ColumnDefinitions="*,*,*" Margin="0,20,20,20">
+            <Button Grid.Column="0"
+                Text="Save"
+                Clicked="OnSaveEditCourse"
+                BackgroundColor="#426929"/>
+
+            <Button Grid.Column="1"
+                Text="Share Notes"
+                Clicked="OnShareNotes"
+                Margin="10,0"/>
+
+            <Button Grid.Column="2"
+                Text="Delete Course"
+                Clicked="OnDeleteCourse"/>
+        </Grid>
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

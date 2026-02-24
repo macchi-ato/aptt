@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="mobile_app.View.AddAssessmentPage"
+             Title="AddAssessmentPage">
+
+    <ScrollView>
+    <VerticalStackLayout Padding="20" Margin="0,50,0,0">
+
+        <Entry x:Name="AssessmentName"
+               Placeholder="Enter assessment name"
+               Margin="0,0,0,20"/>
+
+        <Picker x:Name="TypePicker"
+                Title="Select an assessment type:"
+                Margin="0,0,0,20">
+            <Picker.Items>
+                <x:String>Objective</x:String>
+                <x:String>Performance</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Select a start date:"/>
+        <DatePicker x:Name="AssessmentStartDate"
+                    Format="MM/dd/yyyy"
+                    Date="{x:Static sys:DateTime.Now}"
+                    Margin="0,0,0,20"/>
+
+        <Label Text="Select a end date:"/>
+        <DatePicker x:Name="AssessmentEndDate"
+                    Format="MM/dd/yyyy"
+                    Date="{x:Static sys:DateTime.Now}"
+                    Margin="0,0,0,20"/>
+
+        <Button Text="Save"
+                Clicked="OnSaveClicked"
+                BackgroundColor="#426929"/>
+
+    </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

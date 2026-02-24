@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mobile_app.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+    <Grid RowDefinitions="*,Auto">
+
+        <VerticalStackLayout Grid.Row="0">
+            
+            <Grid BackgroundColor="#426929" HeightRequest="80">
+                <Label
+                    Text="Terms"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    TextColor="White"
+                    FontSize="20"/>
+            </Grid>
+
+            <VerticalStackLayout BackgroundColor="#B2C3B1" HeightRequest="250" Padding="20">
+                <Label
+                    Text="WGU"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    TextColor="#000866"
+                    FontSize="48"
+                    Margin="40"/>
+                <Label
+                    Text="Academic Term Tracker"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    TextColor="#000866"
+                    FontSize="24"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout >
+                <Grid ColumnDefinitions="*,*,*"
+                      Padding="20, 20, 20, 6">
+                    <Label 
+                            Grid.Column="0"
+                            Text="Term"/>
+                    <Label 
+                            Grid.Column="1"
+                            Text="Start"/>
+                    <Label 
+                            Grid.Column="2"
+                            Text="End"/>
+                </Grid>
+
+                <BoxView HeightRequest="1"
+                        Color="Gray"
+                        VerticalOptions="Fill"
+                        Margin="20,0"/>
+            </VerticalStackLayout>
+
+            <CollectionView x:Name="TermsListView"
+                            ItemsSource="{Binding Terms}"
+                            SelectionMode="Single"
+                            SelectionChanged="OnTermSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="*,*,*"
+                              Padding="20, 20, 20, 0">
+                            <Label Grid.Column="0" 
+                                   Text="{Binding Name}"
+                                   TextColor="#997304"
+                                   FontSize="16"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding StartDate, StringFormat='{0:MM-dd-yyyy}'}"/>
+                            <Label Grid.Column="2" 
+                                   Text="{Binding EndDate, StringFormat='{0:MM-dd-yyyy}'}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+        <Button Grid.Row="1" 
+            Clicked="OnClickAddTerm"
+            BackgroundColor="#426929"
+            Text="Add Term"
+            HorizontalOptions="Start"
+            Margin="20"
+            WidthRequest="120"/>
+        
+    </Grid>
+    </ScrollView>
+
+</ContentPage>

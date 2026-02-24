@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="mobile_app.View.AddTermPage"
+             Title="AddTermPage">
+
+    <ScrollView>
+    <VerticalStackLayout Padding="20" Margin="0,50,0,0">
+
+        <Entry x:Name="TermName"
+               Placeholder="Enter Term Name"
+               Margin="0,0,0,20"/>
+
+        <Label Text="Select a start date:"/>
+        <DatePicker x:Name="TermStartDate"
+                    Format="MM/dd/yyyy"
+                    Date="{x:Static sys:DateTime.Now}"
+                    Margin="0,0,0,20"/>
+
+        <Label Text="Select a end date:"/>
+        <DatePicker x:Name="TermEndDate"
+                    Format="MM/dd/yyyy"
+                    Date="{x:Static sys:DateTime.Now}"
+                    Margin="0,0,0,20"/>
+
+        <Button Text="Save Term"
+                Clicked="OnSaveClicked"
+                BackgroundColor="#426929"/>
+
+    </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

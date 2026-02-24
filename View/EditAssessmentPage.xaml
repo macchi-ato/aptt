@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mobile_app.View.EditAssessmentPage"
+             Title="EditAssessmentPage">
+
+    <ScrollView>
+    <VerticalStackLayout Padding="20" Margin="0,50,0,0">
+
+        <Entry x:Name="AssessmentName"
+           Text="{Binding Name}"
+           Margin="0,0,0,20"/>
+
+        <Label Text="Assessment Type:"/>
+        <Picker x:Name="TypePicker"
+            Title="{Binding Type}"
+            SelectedItem="{Binding Type}"
+            Margin="0,0,0,20">
+            <Picker.Items>
+                <x:String>Objective</x:String>
+                <x:String>Performance</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Edit start date:"/>
+        <DatePicker x:Name="AssessmentStartDate"
+            Format="MM/dd/yyyy"
+            Date="{Binding StartDate}"
+            Margin="0,0,0,20"/>
+
+        <Label Text="Edit end date:"/>
+        <DatePicker x:Name="AssessmentEndDate"
+            Format="MM/dd/yyyy"
+            Date="{Binding EndDate}"
+            Margin="0,0,0,20"/>
+
+        <HorizontalStackLayout>
+            <CheckBox x:Name="StartNotificationCheckbox" CheckedChanged="OnCheckedStartNotification"/>
+            <Label Text="Notify me on start date" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <CheckBox x:Name="EndNotificationCheckbox" CheckedChanged="OnCheckedEndNotification"/>
+            <Label Text="Notify me on end date" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <Grid ColumnDefinitions="*,*" Margin="0,20,0,0">
+            <Button Grid.Column="0"
+                Text="Save"
+                Clicked="OnSave"
+                BackgroundColor="#426929"
+                Margin="10,0,0,0"/>
+
+            <Button Grid.Column="2"
+                Text="Delete"
+                Clicked="OnDelete"
+                Margin="10,0,0,0"/>
+        </Grid>
+
+    </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

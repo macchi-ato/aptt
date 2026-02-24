@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="mobile_app.View.AddCoursePage"
+             Title="AddCoursePage">
+
+    <ScrollView>
+    <VerticalStackLayout Padding="20" Margin="0,50,0,0">
+
+        <Entry x:Name="CourseName"
+               Placeholder="Enter Course Name"
+               Margin="0,0,0,20"/>
+
+            <Label Text="Insctructor Name:"/>
+            <Entry x:Name="CourseInstructorName"
+               Placeholder="Add instructor name"
+               Margin="0,0,0,20"/>
+
+            <Label Text="Instrcutor Phone:"/>
+            <Entry x:Name="CourseInstructorPhone"
+               Placeholder="Add instructor phone"
+               Margin="0,0,0,20"/>
+
+            <Label Text="Instructor Email:"/>
+            <Entry x:Name="CourseInstructorEmail"
+               Placeholder="Add instructor email"
+               Margin="0,0,0,20"/>
+
+            <Label Text="Notes:"/>
+            <Entry x:Name="CourseNotes"
+               Placeholder="Add notes..."
+               Margin="0,0,0,20"/>
+
+            <Picker x:Name="StatusPicker"
+                Title="Select a Status"
+                Margin="0,0,0,20">
+            <Picker.Items>
+                <x:String>In Progress</x:String>
+                <x:String>Completed</x:String>
+                <x:String>Dropped</x:String>
+                <x:String>Plan to Take</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Select a start date:"/>
+        <DatePicker x:Name="CourseStartDate"
+                    Format="MM/dd/yyyy"
+                    Date="{x:Static sys:DateTime.Now}"
+                    Margin="0,0,0,20"/>
+
+        <Label Text="Select a end date:"/>
+        <DatePicker x:Name="CourseEndDate"
+                    Format="MM/dd/yyyy"
+                    Date="{x:Static sys:DateTime.Now}"
+                    Margin="0,0,0,20"/>
+
+        <Button Text="Save Course"
+                Clicked="OnSaveClicked"
+            BackgroundColor="#426929"/>
+
+    </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
