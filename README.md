@@ -1,3 +1,5 @@
+> This app was cloned from my old GitHub account [vidalgmartin](https://github.com/vidalgmartin). 
+
 # APTT — Academic Term Planning App
 
 A cross-platform mobile application built with **.NET MAUI** for tracking academic terms, courses, and assessments. Data is stored locally on device using SQLite. No backend or internet connection is required.
