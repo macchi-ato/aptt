@@ -1,4 +1,4 @@
-> This app was cloned from my old GitHub account [vidalgmartin](https://github.com/vidalgmartin). 
+> This app was cloned from my old (inactive) GitHub account [vidalgmartin](https://github.com/vidalgmartin).
 
 # APTT — Academic Term Planning App
 
